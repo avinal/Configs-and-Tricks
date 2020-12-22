@@ -1,5 +1,3 @@
-#! /usr/bin
-
 # Custom Command prompt add to last of ~/.bashrc
 
 WHITE='\[\033[1;37m\]'
