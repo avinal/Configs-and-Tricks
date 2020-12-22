@@ -1,0 +1,17 @@
+{
+	"Insert Comment":{
+		"prefix": "comment",
+		"body": [
+			"/**",
+			" * $TM_FILEPATH",
+			" * @author <author-name>",
+			" * @since $CURRENT_MONTH_NAME $CURRENT_DATE, $CURRENT_YEAR",
+			" *",
+			" * ${1:Description of Program}",
+			" */",
+			"",
+			"$0"
+		],
+		"description": "Add Comment and description"
+	}
+}
