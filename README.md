@@ -1,5 +1,6 @@
-# Dev-Configs
-My custom configuration scripts.
+# Configurations and Tricks
+My custom configuration scripts and tricks
+
 
 1. Customise your Bash Prompt
 
@@ -43,3 +44,80 @@ My custom configuration scripts.
     ```
     - Copy the contents of [profile.ps1](powershell/profile.ps1) to this file, save and exit
     - Relaunch your powershell
+
+3. Rebase and sqash commits of an active pull request (git)
+
+    - Confirm or configure upstream
+    ```bash
+    # make sure you have a upstream configured, to check type 
+    git remote -v
+    # result will have origin and upstream as below
+        origin  https://github.com/<you>/<repo>.git (fetch)
+        origin  https://github.com/<you>/<repo>.git (push)
+        upstream        https://github.com/<owner>/<repo>.git (fetch)
+        upstream        https://github.com/<owner>/<repo>.git (push)
+    ```
+    If yes skip next step
+    - Add a upstream 
+    ```bash
+    git remote add upstream https://github.com/<owner>/<repo>.git
+    ```
+    Again check with previous command
+    - Update your fork
+    ```bash
+    # fetch updates from upstream
+    git fetch upstream
+    # checkout master or main branch
+    git checkout master
+    # push update to your fork
+    git push
+    ```
+    - Rebase your pull request, checkout the original branch used to create pull request
+    ```bash
+    git checkout pull-request-branch
+    # rebase this branch
+    git rebase upstream/master
+    ```
+    If you want to sqash your commits then follow the step or skip to last
+    - reset last `n` commits
+    ```bash
+    git reset --soft HEAD~n
+    # new sqashed commit
+    git commit -m "commit message"
+    ```
+    - Push your changes
+    ```bash
+    git push origin +pull-request-branch
+    ```
+    **+** is required to put before branch name since you are rewriting the history and forcely pushing it
+
+4. Split a commit in already pushed code or active pull request
+    - Rebase last `n` commits
+    ```bash
+    git rebase -i HEAD~n
+    ```
+    In the interactive screen simply replace *pick* with *edit* in front of the commits you want to modify
+    ```bash
+    git reset HEAD~
+    ```
+    - Add your files again and commit 
+    ```bash
+    git add ...
+    git commit -m "commit 1 message"
+
+    git add ...
+    git commit -m "commit 2 message"
+    .
+    .
+    git add ...
+    git commit -m "last commit message"
+    ```
+    - Continue rebasing
+    ```bash
+    git rebase --continue
+    ```
+    - Push your changes
+    ```bash
+    git push origin +branch-name
+    ```
+    
