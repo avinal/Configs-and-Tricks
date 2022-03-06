@@ -1,0 +1,100 @@
+# starship configurations
+# ~/.config/starship.toml
+
+[character]
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
+
+[[battery.display]]
+threshold = 20
+style = "bold red"
+
+[cmd_duration]
+format = "ran for [$duration](bold pink)"
+
+[hostname]
+ssh_only = false
+
+[kubernetes]
+disabled = true
+
+[hg_branch]
+disabled = true
+
+[sudo]
+disabled = false
+
+[terraform]
+disabled = true
+
+[time]
+disabled = false
+format = "[$time]($style) "
+time_format = "%H:%m"
+
+# disabled modules
+
+[aws]
+disabled = true
+
+[azure]
+disabled = true
+
+[cobol]
+disabled = true
+
+[crystal]
+disabled = true
+
+[dart]
+disabled = true
+
+[deno]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[julia]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[ocaml]
+disabled = true
+
+[pulumi]
+disabled = true
+
+[purescript]
+disabled = true
+
+[red]
+disabled = true
+
+[ruby]
+disabled = true
+
+[scala]
+disabled = true
+
+[shlvl]
+disabled = true
+
+[vlang]
+disabled = true
+
+
+[zig]
+disabled = true
+
